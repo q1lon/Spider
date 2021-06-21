@@ -1,0 +1,35 @@
+name: '36k news Bot'
+
+on:
+  push:
+  schedule:
+    - cron: '0 22 * * *'
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Get 36kNews'
+        run: python3 36kr/36kr.py
+      - name: 'Write News'
+        run: echo "news_content=$(python3 36kr/36kr.py)" >> $GITHUB_ENV
+      - name: 'Send dingtalk Notice'
+        uses: ghostoy/dingtalk-action@master
+        with:
+          webhook: ${{ secrets.DINGTALK_WEBHOOK}}
+          msgtype: markdown
+          content: |
+            {
+              "title": "36k news",
+              "text": "commit: ${{ env.news_content }}"
+            }
+
+#          at: |
+#            {
+#              "atMobiles": [
+#                "1234567890"
+#              ],
+#              "isAtAll": false
+#            }
