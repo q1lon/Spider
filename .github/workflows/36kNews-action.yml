@@ -27,7 +27,7 @@ jobs:
           msgtype: markdown
           content: |
             {
-              "title": "36k news (${{env.REPORT_DATE }})",
+              "title": "36k News (${{env.REPORT_DATE }})",
               "text": "${{env.JSON_RESPONSE}}"
             }
 
