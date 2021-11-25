@@ -14,7 +14,7 @@ jobs:
       - name: 'pip install'
         run: pip3 install bs4
       - name: 'Get 36kNews'
-        run: python3 36kr/36kr.py >> 36knews.txt
+        run: echo "REPORT_DATE=$(python3 36kr/36kr.py)"  
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
@@ -23,7 +23,7 @@ jobs:
           content: |
             {
               "title": "36k news",
-              "text": "$(file://36knews.txt)"
+              "text": "$(REPORT_DATE)"
             }
 
 #          at: |
