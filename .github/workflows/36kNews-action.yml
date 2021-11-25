@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v2
-      - name: 'Get 36kNews'
+      - name: 'pip install'
         run: pip3 install bs4
       - name: 'Get 36kNews'
-        run: echo "news_content=$(python3 36kr/36kr.py)" >> $GITHUB_ENV
+        run: |
+        news_content = $(python3 36kr/36kr.py)
+        echo "news_content=$news_content" >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
