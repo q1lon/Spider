@@ -20,10 +20,7 @@ jobs:
             curl https://httpbin.org/json >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
       - name: 'Get 36kNews'
-        run: ｜
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          echo xxxxx >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+#        run: python3 36kr/36kr.py
       - name: 'Get date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
