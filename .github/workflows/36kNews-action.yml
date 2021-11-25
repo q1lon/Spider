@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v2
       - name: 'pip install'
-        run: pip3 install bs4
+        run: pip3 install -r 36kr/requirements.txt
       - name: Get 36kNews
         run: |
             python3 36kr/36kr.py >> news.txt
