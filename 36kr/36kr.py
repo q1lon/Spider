@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # print(str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：')
     text = str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：'+ '\\n> '
     for p in ps:
-        text += str(index) + '.' + p.text +' \\n> '
+        text +='##### '+ str(index) + '.' + p.text +' \\n> '
         # print(text)
         index += 1
     print(text)
