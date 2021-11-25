@@ -23,7 +23,7 @@ jobs:
           content: |
             {
               "title": "36k news",
-              "text": "commit: ${{ env.news_content }}"
+              "text": "${{ env.news_content }}"
             }
 
 #          at: |
