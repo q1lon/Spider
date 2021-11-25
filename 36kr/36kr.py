@@ -50,7 +50,10 @@ if __name__ == '__main__':
     index = 1
     ps = getDocument(html, 'a', {'class': 'item-title'})
     date = datetime.datetime.now()
-    print(str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：')
+    # print(str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：')
+    text = str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：<br>'
     for p in ps:
-        print(str(index) + '.' + p.text)
+        text += str(index) + '.' + p.text +'<br>'
+        # print(text)
         index += 1
+    print(text)

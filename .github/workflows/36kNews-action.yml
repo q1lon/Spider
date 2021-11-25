@@ -13,10 +13,9 @@ jobs:
         uses: actions/checkout@v2
       - name: 'pip install'
         run: pip3 install bs4
-      - name: Set the value
-        id: step_one
+      - name: Get 36kNews
         run: |
-            python3 36kr/36kr.py >> news.txt
+            "$(python3 36kr/36kr.py)" >> news.txt
             echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
             cat news.txt >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
