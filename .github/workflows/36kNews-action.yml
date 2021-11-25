@@ -1,4 +1,4 @@
-name: '36k news Bot'
+name: '36k News Bot'
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: 'Get 36kNews'
         run: ｜
           echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          curl https://httpbin.org/json >> $GITHUB_ENV
+          curl xxxxx >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: 'Get date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
