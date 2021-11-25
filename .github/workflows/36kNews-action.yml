@@ -16,7 +16,6 @@ jobs:
       - name: 'Get 36kNews'
         run: |
         python3 36kr/36kr.py >> 36knews.txt
-#        echo "news_content=$news_content" >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
