@@ -15,9 +15,9 @@ jobs:
         run: pip3 install bs4
       - name: 'Get 36kNews'
         run: ｜
-              echo 'today_news<<EOF' >> $GITHUB_ENV
-              $(python3 36kr/36kr.py) >> $GITHUB_ENV
-              echo 'EOF' >> $GITHUB_ENV
+          echo 'today_news<<EOF' >> $GITHUB_ENV
+          echo "$(python3 36kr/36kr.py)" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
