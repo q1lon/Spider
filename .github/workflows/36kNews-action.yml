@@ -15,9 +15,11 @@ jobs:
         run: pip3 install bs4
       - name: 'Get 36kNews'
         run: ｜
-          echo 'TODAY_NEWS<<EOF' >> $GITHUB_ENV
-          echo "$(python3 36kr/36kr.py)" >> $GITHUB_ENV
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+          curl https://httpbin.org/json >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
+      - name: 'Get date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
@@ -25,8 +27,8 @@ jobs:
           msgtype: markdown
           content: |
             {
-              "title": "36k news",
-              "text": "${{env.TODAY_NEWS}}"
+              "title": "36k news (${{env.REPORT_DATE }})",
+              "text": "${{env.JSON_RESPONSE}}"
             }
 
 #          at: |
