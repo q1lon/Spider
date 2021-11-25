@@ -16,8 +16,9 @@ jobs:
       - name: Set the value
         id: step_one
         run: |
+            python3 36kr/36kr.py >> news.txt
             echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-            curl https://httpbin.org/json >> $GITHUB_ENV
+            cat news.txt >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
 #      - name: 'Get 36kNews'
 #        run: python3 36kr/36kr.py
