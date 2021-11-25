@@ -23,7 +23,7 @@ jobs:
           content: |
             {
               "title": "36k news",
-              "text": "$(REPORT_DATE)"
+              "text": "${{REPORT_DATE}}"
             }
 
 #          at: |
