@@ -4,6 +4,8 @@ import pip._vendor.html5lib.filters.inject_meta_charset
 import datetime
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
+import pytz
+tz = pytz.timezone('Asia/Shanghai')
 
 baseUrl = 'https://36kr.com/newsflashes'
 
@@ -28,7 +30,7 @@ def getDocument(html, dtype, attr):
 
 
 def GetWeekday():
-    weekday = datetime.datetime.now().weekday()
+    weekday = datetime.datetime.now(tz).weekday()
     if weekday == 0:
         return '星期一'
     elif weekday == 1:
