@@ -15,10 +15,17 @@ jobs:
         run: pip3 install -r 36kr/requirements.txt
       - name: Get 36kNews
         run: |
-            python3 36kr/36kr.py >> news.txt
+            python3 36kr/36kr.py >> 36krnews.txt
             echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-            cat news.txt >> $GITHUB_ENV
+            cat 36krnews.txt >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
+      - name: 'Push txt'
+        run: |
+          git config user.name q1lon
+          git config user.email keyron.zhang@gmail.com
+          git add .
+          git commit -m "36krnews"
+          git push
       - name: 'Get date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send dingtalk Notice'
