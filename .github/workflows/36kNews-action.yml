@@ -15,6 +15,7 @@ jobs:
         run: pip3 install -r 36kr/requirements.txt
       - name: Get 36kNews
         run: |
+            rm -rf 36krnews.txt
             python3 36kr/36kr.py >> 36krnews.txt
             echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
             cat 36krnews.txt >> $GITHUB_ENV
