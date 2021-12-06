@@ -29,6 +29,17 @@ jobs:
           git push
       - name: 'Get date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+      - name: 'Send Qywx Notice'
+        uses: zcong1993/actions-qywx-bot@v1.0.0
+        with:
+          key: ${{ secrets.QYWX_BOT_KEY}}
+          body: |
+            {
+              "msgtype": "markdown",
+              "markdown": {
+              "content": "${{env.JSON_RESPONSE}}"
+               }
+             }
       - name: 'Send dingtalk Notice'
         uses: ghostoy/dingtalk-action@master
         with:
