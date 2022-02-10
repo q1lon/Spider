@@ -20,7 +20,7 @@ jobs:
         run: |
           git config user.name q1lon
           git config user.email keyron.zhang@gmail.com
-          git pull --rebase
           git add .
           git commit -m "ipaddress Host"
+          git pull --rebase
           git push

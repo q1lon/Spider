@@ -24,9 +24,9 @@ jobs:
         run: |
           git config user.name q1lon
           git config user.email keyron.zhang@gmail.com
-          git pull --rebase
           git add .
           git commit -m "36krnews"
+          git pull --rebase
           git push
       - name: 'Get date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
