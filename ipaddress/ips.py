@@ -22,8 +22,8 @@ IPADDRESS_PREFIX = ".ipaddress.com"
 HOSTS_TEMPLATE = """# Host Start
 {content}
 # Update time: {update_time}
-# Update url: https://cdn.jsdelivr.net/gh/q1lon/Spider@master/ipaddress/host
-# Update url: https://cdn.jsdelivr.net/gh/q1lon/Spider@master/ipaddress/host.josn
+# Update url: https://cdn.jsdelivr.net/gh/q1lon/Spider@master/ipaddress/hosts
+# Update url: https://cdn.jsdelivr.net/gh/q1lon/Spider@master/ipaddress/hosts.josn
 # Host End\n"""
 
 
