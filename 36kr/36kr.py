@@ -1,10 +1,10 @@
+import pytz
 import urllib.request
 from bs4 import BeautifulSoup
 import pip._vendor.html5lib.filters.inject_meta_charset
 import datetime
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
-import pytz
 tz = pytz.timezone('Asia/Shanghai')
 
 baseUrl = 'https://36kr.com/newsflashes'
@@ -53,9 +53,9 @@ if __name__ == '__main__':
     ps = getDocument(html, 'a', {'class': 'item-title'})
     date = datetime.datetime.now(tz)
     # print(str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：')
-    text = str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：'+ '\\n> '
+    text = str(date.year) + '年' + str(date.month) + '月' + str(date.day) + '日' + GetWeekday() + ',' + '每日科技快讯：' + '\\n> '
     for p in ps:
-        text +='##### '+ str(index) + '.' + p.text +' \\n> '
+        text += '##### ' + str(index) + '.' + p.text + ' \\n> '
         # print(text)
         index += 1
     print(text)
