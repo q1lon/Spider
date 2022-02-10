@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
       - name: 'pip install'
         run: pip3 install -r ipaddress/requirements.txt
-      - name: Get 36kNews
+      - name: Get ipaddress Host
         run: |
             python3 ipaddress/ips.py
       - name: 'Push Host'
