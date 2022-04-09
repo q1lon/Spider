@@ -2,4 +2,4 @@ beautifulsoup4==4.10.0
 lxml==4.6.5
 pip==21.3.1
 requests==2.26.0
-scrapy==2.5.1
+scrapy==2.6.0
