@@ -1,9 +1,9 @@
 import pytz
-import urllib.request
 from bs4 import BeautifulSoup
 import pip._vendor.html5lib.filters.inject_meta_charset
 import datetime
 import ssl
+import requests
 ssl._create_default_https_context = ssl._create_unverified_context
 tz = pytz.timezone('Asia/Shanghai')
 
@@ -12,8 +12,9 @@ baseUrl = 'https://36kr.com/newsflashes'
 
 def getHtml(url):
     try:
-        data = urllib.request.urlopen(url)
-        html = data.read()
+        headers={'Accept-Encoding':'gzip, deflate, br','User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36'}
+        html = requests.get(url,headers=headers)
+        return html.text
     except Exception as err:
         print('error:', err)
         html = 'error'
